@@ -13,14 +13,16 @@ class Useful(commands.Cog):
   @commands.command(brief = 'Displays member count')
   async def members(self, ctx):
     membercount = ctx.guild.member_count
-    embed = discord.Embed(title = 'Current Member count', description = membercount, colour=0x00FF5E)
-    embed.set_footer(text=f'Requested by {ctx.message.author}. This number includes bots.')
+    membercount = int(membercount)
+    nobotcount = membercount - 5 
+    embed = discord.Embed(title = 'Current Member count', description = f"The server currently has {membercount} members! \n {nobotcount} if we don't count bots.", colour=0x00FF5E)
+    embed.set_footer(text=f'Requested by {ctx.message.author}.')
     await ctx.message.delete()
     await ctx.send(embed=embed)
 
-  @commands.command(brief = 'Shows informatiion about the bot')
-  async def dev(self, ctx):
-    embed = discord.Embed(title = 'Bot developer', description = f'Bot created by <@478212283701526529> using the discord.py library. \n Check out the source code here: https://github.com/afastaudir8/discord-bot', url='https://github.com/afastaudir8/discord-bot', colour=0x00FFF3)
+  @commands.command(brief = 'Shows credits for the bot')
+  async def credits(self, ctx):
+    embed = discord.Embed(title = 'Credits', description = f'Bot created by <@478212283701526529> using the discord.py library. Other libraries include Translator, goslate, datetime, and asyncio \n Check out the source code here: https://github.com/afastaudir8/discord-bot', url='https://github.com/afastaudir8/discord-bot', colour=0x00FFF3)
     await ctx.send(embed=embed)
   @commands.command()
   async def suicidehotlines(self, ctx):

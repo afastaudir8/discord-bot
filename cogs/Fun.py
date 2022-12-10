@@ -79,7 +79,7 @@ class Fun(commands.Cog):
       today = datetime.date.today()
       christmasday = datetime.date(2022,12,25)
       diff = christmasday - today
-      embed = discord.Embed(title = 'Days left until Christmas.', description = f'Days left: `{diff.days} days`', colour = 0xFF0004)
+      embed = discord.Embed(title = 'Days left until Christmas.', description = f'Days left: `{diff.days} days`. \n Happy holidays!', colour = 0xFF0004)
       embed.set_footer(text=f'Requested by {ctx.message.author}.')
       await ctx.message.delete()
       await ctx.send(embed = embed)
@@ -90,10 +90,13 @@ class Fun(commands.Cog):
       date = today.date()   
       days = today.timetuple().tm_yday
       calc1 = days / 365
+      calc2 = 365 - days
       percent = calc1 * 100
       percent = int(percent)
       year = date.strftime("%Y")
-      embed = discord.Embed(title = 'Year progress', description = f'We are `{percent}%` through the year!', url="https://www.youtube.com/watch?v=pgXozIma-Oc", colour = 0x00FF0A)
+      year = int(year)
+      nextyear = year + 1
+      embed = discord.Embed(title = 'Year progress', description = f"We are `{percent}%` through the year! \n That means there's around `{calc2}` days left until {nextyear}", url="https://www.youtube.com/watch?v=pgXozIma-Oc", colour = 0x00FF0A)
       embed.set_footer(text = f'Requested by {ctx.message.author}. Current year: {year}')
       await ctx.message.delete()
       await ctx.send(embed = embed)
