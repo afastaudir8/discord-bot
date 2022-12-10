@@ -3,9 +3,9 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions
 import random
 from random import choice
-import goslate
+#import goslate
 import datetime
-from googletrans import Translator
+#from googletrans import Translator
 
 translation = Translator(service_urls=['translate.googleapis.com'])
 
