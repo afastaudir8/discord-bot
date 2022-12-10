@@ -17,4 +17,6 @@ The translate command sometimes doesn't work. This is presumably due to the GoSl
 
 **goslate**
 
+**datetime**
+
 **probably some other stuff that I'm definitely forgetting**
