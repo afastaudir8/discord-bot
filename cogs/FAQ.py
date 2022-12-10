@@ -25,7 +25,7 @@ class FAQ(commands.Cog):
 
   @commands.command()
   async def betacommands(self, ctx):
-    embed = discord.Embed(title = 'Beta commands', description = f"Beta commands are certain commands that are included with the bot that only work in a specific channel in a seperate server that only <@478212283701526529> has access to (Some are accessible on this server though). These commands are either upcoming commands or commands I'm testing. None of them are final and/or may never make it to the normal command list \n**Do not ask for an invite to that server**")
+    embed = discord.Embed(title = 'Beta commands', description = f"Beta commands were certain commands that were included with the bot that only worked in a specific channel in a seperate server that only <@478212283701526529> had access to (Some were accessible on this server though). These commands were either upcoming commands or commands I'm testing. None of them were final and/or may never have made it to the normal command list. \n These are now redundant due to the `dev` branch. \n**Do not ask for an invite to that server**")
     embed.set_footer(text=f'Requested by {ctx.message.author}')
     await ctx.message.delete()
     await ctx.send(embed=embed)
