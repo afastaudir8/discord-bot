@@ -50,6 +50,13 @@ class FAQ(commands.Cog):
     embed.set_footer(text = f"Requested by {ctx.message.author}.")
     await ctx.message.delete()
     await ctx.send(embed = embed)
+    
+  @commands.command(brief="If you're seeing this command, the bot is currently running under another Discord bot!")
+  async def botception(self, ctx):
+    embed = discord.Embed(title = 'Botception', description = f'If you triggered this command, the bot is currently running under another Discord bot called dlinux! \n Basically, dlinux is a bot that creates a Linux container that is accessible via SSH that you can freely mess around with.')
+    embed.set_footer(text = f'Requested by {ctx.message.author}.')
+    await ctx.message.delete()
+    await ctx.send(embed = embed)
 
 
 async def setup(client):
