@@ -14,7 +14,7 @@ class Useful(commands.Cog):
   async def members(self, ctx):
     membercount = ctx.guild.member_count
     embed = discord.Embed(title = 'Current Member count', description = membercount, colour=0x00FF5E)
-    embed.set_footer(text=f'Requested by {ctx.message.author}.')
+    embed.set_footer(text=f'Requested by {ctx.message.author}. This number includes bots.')
     await ctx.message.delete()
     await ctx.send(embed=embed)
 
