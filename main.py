@@ -22,24 +22,16 @@ if "Linux" not in (system):
 # 2.5: If the file does exist, it prints the token and start the bot
 # 3 Verify the contents of token.txt. If it contains "This is where you put the bot's Discord token. Replace all the text here with just your token.", exit the script.
 
-try:
-    tokencreate = open('token.txt', 'x')
-    tokencreate.write("This is where you put the bot's Discord token. Replace all the text here with just your token.")
-    tokencreate.close()
-except:
-    pass
 
 def exitcode():
     tokencheck = open('token.txt', 'r')
     tokenread = tokencheck.read()
-    tokenread = str(tokenread)
-    print(tokenread)
     if tokenread == "This is where you put the bot's Discord token. Replace all the text here with just your token.":
+        print("Check out the newly created text file in the bot's directory. That's where you have to put your bot's token.")
         print('Exiting...')
         sys.exit(0)
     else:
         print(f"Your token: {tokenread}")
-
 
 
 
