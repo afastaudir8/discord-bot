@@ -56,7 +56,7 @@ class Fun(commands.Cog):
       embed = discord.Embed(title='Gayness Percentage:', description=f'{gaymachine}%')
       await ctx.send(embed=embed)
 
-    @commands.command(brief ='Loadout generator for Titanfall 2')
+    @commands.command(brief ='Loadout generator for Titanfall 2.')
     async def tf2loadout(self, ctx):
       Select()
       embed = discord.Embed(title='Titanfall 2 Loadout Generator', description = f'**Primary:** {P}\n**Secondary:** {S}\n**Anti-Titan:** {AT}\n**Kit 1:** {P1}\n**Kit 2:** {P2}\n**Ability:** {A}', colour=0x00f6fa)
@@ -64,7 +64,7 @@ class Fun(commands.Cog):
       await ctx.message.delete()
       await ctx.send(embed = embed)
     
-    @commands.command(brief = "Translates your message", description = 'This command grabs your message and puts it through the Google Translate API. Sometimes, it just decides to stop working, sorry about that!')
+    @commands.command(brief = "Translates the contents of your message to English.", description = 'This command grabs your message and puts it through the Google Translate API. Sometimes, it just decides to stop working, sorry about that!')
     async def gtranslate(self, ctx, message):
       textinput = message
       gs = goslate.Goslate()
@@ -84,7 +84,7 @@ class Fun(commands.Cog):
       await ctx.message.delete()
       await ctx.send(embed = embed)
 
-    @commands.command(brief = 'Calculates progress through the year through a percentage.')
+    @commands.command(brief = 'Shows a percentage of the progress throughout the year and days left in the year.')
     async def yearprogress(self, ctx):
       today = datetime.datetime.now()
       date = today.date()   
