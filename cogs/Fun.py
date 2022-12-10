@@ -7,7 +7,7 @@ from random import choice
 import datetime
 #from googletrans import Translator
 
-translation = Translator(service_urls=['translate.googleapis.com'])
+# translation = Translator(service_urls=['translate.googleapis.com'])
 
 Primaries = ['R-201/101', 'Hemlock', 'G2A5', "Flatline", 'Alternator', 'CAR', 'R-97', 'Volt', 'Spitfire', 'Devotion', 'L-STAR', 'Cold War', 'EPG', 'SMR', 'Softball', 'Wingman Elite', 'Mozambique', 'EVA-8', 'Mastiff', 'Double Take', 'Kraber', 'Longbow']
 Secondaries = ['P2016', 'Wingman', 'RE-45']
@@ -64,15 +64,15 @@ class Fun(commands.Cog):
       await ctx.message.delete()
       await ctx.send(embed = embed)
     
-    @commands.command(brief = "Translates your message", description = 'This command grabs your message and puts it through the Google Translate API. Sometimes, it just decides to stop working, sorry about that!')
-    async def gtranslate(self, ctx, message):
-      textinput = message
-      gs = goslate.Goslate()
-      trans = gs.translate(textinput, 'en')
-      embed = discord.Embed (title='Translation', description = f"Translation result: {trans}")
-      embed.set_footer(text=f'Demandé par {ctx.message.author}. Message originale: {message}')
-      await ctx.message.delete()
-      await ctx.send(embed=embed) 
+  #  @commands.command(brief = "Translates your message", description = 'This command grabs your message and puts it through the Google Translate API. Sometimes, it just decides to stop working, sorry about that!')
+  #  async def gtranslate(self, ctx, message):
+  #    textinput = message
+  #    gs = goslate.Goslate()
+  #    trans = gs.translate(textinput, 'en')
+  #    embed = discord.Embed (title='Translation', description = f"Translation result: {trans}")
+  #    embed.set_footer(text=f'Demandé par {ctx.message.author}. Message originale: {message}')
+  #    await ctx.message.delete()
+  #    await ctx.send(embed=embed) 
     
     @commands.command(brief = "Shows the amount of days left before Christmas Day.", description = 'Shows the amountof days before Christmas day. This command will be removed on 25/12/2022.')
     async def christmas(self, ctx):
