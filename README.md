@@ -6,6 +6,9 @@ Basically, I haven't updated the bot for over 2 months now. If anyone wants to a
 
 ## Prerequisites
 **python obviously**
+
 **discord.py**
+
 **goslate**
+
 **probably some other stuff that I'm definitely forgetting**
