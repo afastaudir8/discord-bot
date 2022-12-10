@@ -4,12 +4,22 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions
 import os
-
+import platform
 import random
 from random import choice
 import asyncio
 
- 
+system = platform.system()
+
+if "Linux" not in (system):
+    print("By the way, I haven't tested this bot on anything other than Linux. While there shouldn't be any compatiblity issues, keep that in mind.")
+
+try:
+    tokencreate = open('token.txt', 'x')
+except:
+    pass
+
+
 intents= discord.Intents.all()
 intents.members=True
 
