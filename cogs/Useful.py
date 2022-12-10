@@ -23,6 +23,8 @@ class Useful(commands.Cog):
   @commands.command(brief = 'Shows credits for the bot.')
   async def credits(self, ctx):
     embed = discord.Embed(title = 'Credits', description = f'Bot created by <@478212283701526529> using the discord.py library. Other libraries include Translator, goslate, datetime, and asyncio \n Check out the source code here: https://github.com/afastaudir8/discord-bot', url='https://github.com/afastaudir8/discord-bot', colour=0x00FFF3)
+    embed.set_footer(text=f"Requested by {ctx.message.author}. Current bot version: 1.1.1.")
+    await ctx.message.delete()
     await ctx.send(embed=embed)
   @commands.command()
   async def suicidehotlines(self, ctx):
