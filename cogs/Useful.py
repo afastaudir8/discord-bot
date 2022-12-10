@@ -16,7 +16,7 @@ class Useful(commands.Cog):
     membercount = int(membercount)
     nobotcount = membercount - 5 
     embed = discord.Embed(title = 'Current Member count', description = f"The server currently has {membercount} members! \n {nobotcount} if we don't count bots.", colour=0x00FF5E)
-    embed.set_footer(text=f'Requested by {ctx.message.author}. This number includes bots.')
+    embed.set_footer(text=f'Requested by {ctx.message.author}.')
     await ctx.message.delete()
     await ctx.send(embed=embed)
 
