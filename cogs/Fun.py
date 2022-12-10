@@ -79,7 +79,7 @@ class Fun(commands.Cog):
       today = datetime.date.today()
       christmasday = datetime.date(2022,12,25)
       diff = christmasday - today
-      embed = discord.Embed(title = 'Days left until Christmas.', description = f'Days left: `{diff.days} days`', colour = 0xFF0004)
+      embed = discord.Embed(title = 'Days left until Christmas.', description = f'Days left: `{diff.days} days`. \n Happy holidays!', colour = 0xFF0004)
       embed.set_footer(text=f'Requested by {ctx.message.author}.')
       await ctx.message.delete()
       await ctx.send(embed = embed)
