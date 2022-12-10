@@ -4,6 +4,7 @@ from discord.ext.commands import has_permissions
 import random
 from random import choice
 import goslate
+import datetime
 from googletrans import Translator
 
 translation = Translator(service_urls=['translate.googleapis.com'])
@@ -73,6 +74,31 @@ class Fun(commands.Cog):
       await ctx.message.delete()
       await ctx.send(embed=embed) 
     
+    @commands.command(brief = "Shows the amount of days left before Christmas Day.", description = 'Shows the amountof days before Christmas day. This command will be removed on 25/12/2022.')
+    async def christmas(self, ctx):
+      today = datetime.date.today()
+      christmasday = datetime.date(2022,12,25)
+      diff = christmasday - today
+      embed = discord.Embed(title = 'Days left until Christmas.', description = f'Days left: `{diff.days} days`', colour = 0xFF0004)
+      embed.set_footer(text=f'Requested by {ctx.message.author}.')
+      await ctx.message.delete()
+      await ctx.send(embed = embed)
+
+    @commands.command(brief = 'Calculates progress through the year through a percentage.')
+    async def yearprogress(self, ctx):
+      today = datetime.datetime.now()
+      date = today.date()   
+      days = today.timetuple().tm_yday
+      calc1 = days / 365
+      percent = calc1 * 100
+      percent = int(percent)
+      year = date.strftime("%Y")
+      embed = discord.Embed(title = 'Year progress', description = f'We are `{percent}%` through the year!', url="https://www.youtube.com/watch?v=pgXozIma-Oc", colour = 0x00FF0A)
+      embed.set_footer(text = f'Requested by {ctx.message.author}. Current year: {year}')
+      await ctx.message.delete()
+      await ctx.send(embed = embed)
+
+
     @commands.command()
     async def vergil(self, ctx):
         await ctx.send('https://tenor.com/view/vergil-gif-25306498')
