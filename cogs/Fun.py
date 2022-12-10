@@ -90,10 +90,12 @@ class Fun(commands.Cog):
       date = today.date()   
       days = today.timetuple().tm_yday
       calc1 = days / 365
+      calc2 = 365 - days
       percent = calc1 * 100
       percent = int(percent)
       year = date.strftime("%Y")
-      embed = discord.Embed(title = 'Year progress', description = f'We are `{percent}%` through the year!', url="https://www.youtube.com/watch?v=pgXozIma-Oc", colour = 0x00FF0A)
+      nextyear = year + 1
+      embed = discord.Embed(title = 'Year progress', description = f"We are `{percent}%` through the year! \n That means there's around `{calc2}` days left until {nextyear}", url="https://www.youtube.com/watch?v=pgXozIma-Oc", colour = 0x00FF0A)
       embed.set_footer(text = f'Requested by {ctx.message.author}. Current year: {year}')
       await ctx.message.delete()
       await ctx.send(embed = embed)
