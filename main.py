@@ -21,23 +21,28 @@ if "Linux" not in (system):
 # 2: If the file doesn't exist, write "This is where you put the bot's Discord token. Replace all the text here with just your token." to exit the script in such an awful way
 # 2.5: If the file does exist, it prints the token and start the bot
 # 3 Verify the contents of token.txt. If it contains "This is where you put the bot's Discord token. Replace all the text here with just your token.", exit the script.
-def exitcode():
-    exittoken = open('token.txt', 'r')
-    token1 = exittoken.read()
-    if token1 == "This is where you put the bot's Discord token. Replace all the text here with just your token.":
-        print('Exiting...')
-        sys.exit(0)
-    else:
-        print (f'Your token is:{token1}')
-        pass
-
 
 try:
     tokencreate = open('token.txt', 'x')
     tokencreate.write("This is where you put the bot's Discord token. Replace all the text here with just your token.")
-    print('Check out the newly created text file in the directory your bot is in.')
+    tokencreate.close()
 except:
     pass
+
+def exitcode():
+    tokencheck = open('token.txt', 'r')
+    tokenread = tokencheck.read()
+    tokenread = str(tokenread)
+    print(tokenread)
+    if tokenread == "This is where you put the bot's Discord token. Replace all the text here with just your token.":
+        print('Exiting...')
+        sys.exit(0)
+    else:
+        print(f"Your token: {tokenread}")
+
+
+
+
 exitcode()
 
 intents= discord.Intents.all()
