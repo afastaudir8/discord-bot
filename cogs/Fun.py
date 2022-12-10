@@ -79,10 +79,25 @@ class Fun(commands.Cog):
       today = datetime.date.today()
       christmasday = datetime.date(2022,12,25)
       diff = christmasday - today
-      embed = discord.Embed(title = 'Days left until Christmas.', description = f'Days left: {diff.days} days')
+      embed = discord.Embed(title = 'Days left until Christmas.', description = f'Days left: `{diff.days} days`', colour = 0xFF0004)
       embed.set_footer(text=f'Requested by {ctx.message.author}.')
       await ctx.message.delete()
       await ctx.send(embed = embed)
+
+    @commands.command(brief = 'Calculates progress through the year through a percentage.')
+    async def yearprogress(self, ctx):
+      today = datetime.datetime.now()
+      date = today.date()   
+      days = today.timetuple().tm_yday
+      calc1 = days / 365
+      percent = calc1 * 100
+      percent = int(percent)
+      year = date.strftime("%Y")
+      embed = discord.Embed(title = 'Year progress', description = f'We are `{percent}%` through the year!', url="https://www.youtube.com/watch?v=pgXozIma-Oc", colour = 0x00FF0A)
+      embed.set_footer(text = f'Requested by {ctx.message.author}. Current year: {year}')
+      await ctx.message.delete()
+      await ctx.send(embed = embed)
+
 
     @commands.command()
     async def vergil(self, ctx):
