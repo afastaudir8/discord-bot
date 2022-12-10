@@ -20,9 +20,9 @@ class Useful(commands.Cog):
     await ctx.message.delete()
     await ctx.send(embed=embed)
 
-  @commands.command(brief = 'Shows informatiion about the bot')
-  async def dev(self, ctx):
-    embed = discord.Embed(title = 'Bot developer', description = f'Bot created by <@478212283701526529> using the discord.py library. \n Check out the source code here: https://github.com/afastaudir8/discord-bot', url='https://github.com/afastaudir8/discord-bot', colour=0x00FFF3)
+  @commands.command(brief = 'Shows credits for the bot')
+  async def credits(self, ctx):
+    embed = discord.Embed(title = 'Credits', description = f'Bot created by <@478212283701526529> using the discord.py library. Other libraries include Translator, goslate, datetime, and asyncio \n Check out the source code here: https://github.com/afastaudir8/discord-bot', url='https://github.com/afastaudir8/discord-bot', colour=0x00FFF3)
     await ctx.send(embed=embed)
   @commands.command()
   async def suicidehotlines(self, ctx):
