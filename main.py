@@ -15,6 +15,8 @@ intents.members=True
 
 client = commands.Bot(command_prefix = '*', intents=intents)
 
+token = open('token.txt', 'r')
+tokenstring = token.read()
 
 async def load_extensions():
     for filename in os.listdir("./cogs"):
@@ -44,7 +46,7 @@ async def on_member_join(member):
 async def main():
     async with client:
         await load_extensions()
-        await client.start('TOKEN GOES HERE')
+        await client.start(tokenstring)
 
 
 #keep_alive()
