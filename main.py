@@ -4,6 +4,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions
 import os
+import sys
 import platform
 import random
 from random import choice
@@ -14,11 +15,30 @@ system = platform.system()
 if "Linux" not in (system):
     print("By the way, I haven't tested this bot on anything other than Linux. While there shouldn't be any compatiblity issues, keep that in mind.")
 
+
+# This is such a god awful way of doing this kind of thing. Everything until "exitcode()" is basically just
+# 1: Check if the token.txt file (the file that contains a Discord token) exists. This was purely made so I don't accidentally commit my bot token to the repo
+# 2: If the file doesn't exist, write "This is where you put the bot's Discord token. Replace all the text here with just your token." to exit the script in such an awful way
+# 2.5: If the file does exist, it prints the token and start the bot
+# 3 Verify the contents of token.txt. If it contains "This is where you put the bot's Discord token. Replace all the text here with just your token.", exit the script.
+def exitcode():
+    exittoken = open('token.txt', 'r')
+    token1 = exittoken.read()
+    if token1 == "This is where you put the bot's Discord token. Replace all the text here with just your token.":
+        print('Exiting...')
+        sys.exit(0)
+    else:
+        print (f'Your token is:{token1}')
+        pass
+
+
 try:
     tokencreate = open('token.txt', 'x')
+    tokencreate.write("This is where you put the bot's Discord token. Replace all the text here with just your token.")
+    print('Check out the newly created text file in the directory your bot is in.')
 except:
     pass
-
+exitcode()
 
 intents= discord.Intents.all()
 intents.members=True
