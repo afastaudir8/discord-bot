@@ -13,7 +13,7 @@ class Random(commands.Cog):
         yesno = choice(["Yes", "No", "Maybe"])
         await ctx.send(yesno)
 
-    @commands.command(brief = "Going against it's answers is heresy")
+    @commands.command(brief = "Going against it's answers is heresy.")
     async def eightball(self, ctx, message=None):
         pick = choice(["As I see it, yes.", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Don’t count on it.", "It is certain.", "It is decidedly so.", "Most likely.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Outlook good.", "Reply hazy, try again.", "Signs point to yes.", "Very doubtful.", "Without a doubt.", "Yes.", "Yes – definitely.", "You may rely on it."])
         embed = discord.Embed(title = '8ball', description = pick)
@@ -24,7 +24,7 @@ class Random(commands.Cog):
 #        rng = random.randint(1, 1000)
 #        embed = discord.Embed(title='Random Number Generator (1-1000)', description = rng, colour=0x00FF5E)
 #        await ctx.send(embed=embed)
-    @commands.command(brief='Throws out a random number depending on your input', description='This command outputs a random number between 1 and what you inputted. Inputing nothing will default to a value of 1000')
+    @commands.command(brief='Throws out a random number depending on your input.', description='This command outputs a random number between 1 and what you inputted. Inputing nothing will default to a value of 1000.')
     async def rng(self, ctx, message=None):
         try:
             if message == None:

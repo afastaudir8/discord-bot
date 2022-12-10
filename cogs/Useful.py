@@ -10,7 +10,7 @@ class Useful(commands.Cog):
 
 
 
-  @commands.command(brief = 'Displays member count')
+  @commands.command(brief = 'Displays member count.')
   async def members(self, ctx):
     membercount = ctx.guild.member_count
     membercount = int(membercount)
@@ -20,7 +20,7 @@ class Useful(commands.Cog):
     await ctx.message.delete()
     await ctx.send(embed=embed)
 
-  @commands.command(brief = 'Shows credits for the bot')
+  @commands.command(brief = 'Shows credits for the bot.')
   async def credits(self, ctx):
     embed = discord.Embed(title = 'Credits', description = f'Bot created by <@478212283701526529> using the discord.py library. Other libraries include Translator, goslate, datetime, and asyncio \n Check out the source code here: https://github.com/afastaudir8/discord-bot', url='https://github.com/afastaudir8/discord-bot', colour=0x00FFF3)
     await ctx.send(embed=embed)
