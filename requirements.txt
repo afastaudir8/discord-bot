@@ -1,0 +1,5 @@
+goslate
+googletrans
+datetime
+discord
+asyncio
