@@ -46,7 +46,7 @@ class FAQ(commands.Cog):
 
   @commands.command()
   async def github(self, ctx):
-    embed = discord.Embed(title = 'GitHub Repository', description = f'Ever since the 9th of December, 2022, this bot has been open sourced on GitHub. Feel free to make a pull request!', url = 'https://github.com/afastaudir8/discord-bot')
+    embed = discord.Embed(title = 'GitHub Repository', description = f'Ever since 9/12/2022 this bot has been open sourced on GitHub. Feel free to make a pull request!', url = 'https://github.com/afastaudir8/discord-bot')
     embed.set_footer(text = f"Requested by {ctx.message.author}.")
     await ctx.message.delete()
     await ctx.send(embed = embed)
