@@ -37,12 +37,12 @@ class Fun(commands.Cog):
         self.client = client
 
 
-
-    @commands.command()
-    @has_permissions(manage_messages=True)
-    async def say(self, ctx, message=None):
-        await ctx.send(message)
-        await ctx.message.delete()
+# Waiting until I figure out how to use @has_permission with @app_commands
+#    @commands.command()
+#    @has_permissions(manage_messages=True)
+#    async def say(self, ctx, message=None):
+#        await ctx.send(message)
+#        await ctx.message.delete()
 
 #    @commands.command()
 #    @has_permissions(manage_messages=True)
