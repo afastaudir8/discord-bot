@@ -61,7 +61,7 @@ async def on_ready():
 @client.event 
 async def on_member_remove(member):
  channel=client.get_channel(1005707501435629752)
- await channel.send(f'{member} has left the server! :(')
+ await channel.send(f'{member} has left the server!')
 
 @client.event
 async def on_member_join(member):
