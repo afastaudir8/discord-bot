@@ -82,7 +82,7 @@ class Fun(commands.Cog):
 #      await interaction.response.send_message(embed = embed)
     
 #    @commands.command(brief = "Shows the amount of days left before Christmas Day.", description = 'Shows the amountof days before Christmas day. This command will be removed on 25/12/2022.')
-    @app_commands.command(name = 'chrstmas', description='This shows how many days are left until Christmas day. Will be removed on 26/12/22.')
+    @app_commands.command(name = 'christmas', description='This shows how many days are left until Christmas day. Will be removed on 26/12/22.')
     async def christmas(self, interaction: discord.Interaction):
       today = datetime.date.today()
       christmasday = datetime.date(2022,12,25)
