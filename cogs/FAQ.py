@@ -31,12 +31,12 @@ class FAQ(commands.Cog):
 #    await ctx.message.delete()
 #    await ctx.send(embed=embed)
 
-  @commands.command()
-  async def suggestions(self, ctx):
+#  @commands.command()
+  @app_commands.command(name='suggestions', description='Tells you where to put suggestions')
+  async def suggestions(self, interaction: discord.Interaction):
     embed = discord.Embed(title = 'Suggesting commands/features for the bot', description = f"As the bot developer has quite literally zero ideas for commands to add, he'd appreciate any suggestions you send to him! \nJust DM <@478212283701526529>.")
-    embed.set_footer(text=f'Requested by {ctx.message.author}. Meme/troll suggestions will be ignored.')
-    await ctx.message.delete()
-    await ctx.send(embed = embed)
+    embed.set_footer(text=f'Requested by {interaction.user.name}. Meme/troll suggestions will be ignored.')
+    await interaction.response.send_message(embed = embed)
 
 #  @commands.command()
 #  async def outages(self, ctx):
