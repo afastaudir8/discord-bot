@@ -2,6 +2,7 @@ import os
 from multiprocessing import Event
 import discord
 from discord.ext import commands
+from discord import app_commands
 from discord.ext.commands import has_permissions
 import os
 import sys
@@ -51,22 +52,29 @@ async def load_extensions():
             await client.load_extension(f"cogs.{filename[:-3]}")
 
 
-game = discord.Game('Ramprage')
+game = discord.Game("around in VSCode")
 
 @client.event
 async def on_ready():
   await client.change_presence(activity=game)
-  print('ready')
+  print('ready (dev)')
+  try:
+    synced = await client.tree.sync()
+    print(f'Synced. {len(synced)} commands.)')
+  except Exception as error:
+    print(error)
+
+
   
 @client.event 
 async def on_member_remove(member):
- channel=client.get_channel('CHANNELIDHERE')
+ channel=client.get_channel()
  await channel.send(f'{member} has left the server! :(')
 
 @client.event
 async def on_member_join(member):
-    guild = client.get_guild('GUILDIDHERE')
-    channel=client.get_channel('CHANNELIDHERE')
+    guild = client.get_guild()
+    channel=client.get_channel()
     await channel.send(f"Hello {member.mention}! Welcome to this server! You are now the {guild.member_count}th member! \nBefore anything, I recommend you go to <#1008126343738830848> and familiarize yourself with the rules. \n<#1007345658136625203> contains the download link to the game (You can also get the link by using the changelog command). \nFinally, to learn more on the game, check out <#1010733249384960100> \nTo learn how to use this bot, use *help.")
 
 
