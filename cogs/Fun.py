@@ -108,13 +108,13 @@ class Fun(commands.Cog):
       await interaction.response.send_message(embed = embed)
 
 
-    @commands.command()
-    async def vergil(self, ctx):
-        await ctx.send('https://tenor.com/view/vergil-gif-25306498')
+#    @commands.command()
+#    async def vergil(self, ctx):
+#        await ctx.send('https://tenor.com/view/vergil-gif-25306498')
 
-    @commands.command()
-    async def rulesofnature(self, ctx):
-        await ctx.send('https://tenor.com/view/metal-gear-rising-metal-gear-raiden-metal-gear-ray-super-strength-gif-14889306')
+#    @commands.command()
+#    async def rulesofnature(self, ctx):
+#        await ctx.send('https://tenor.com/view/metal-gear-rising-metal-gear-raiden-metal-gear-ray-super-strength-gif-14889306')
 
 async def setup(client):
     await client.add_cog(Fun(client))
