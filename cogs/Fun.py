@@ -51,7 +51,7 @@ class Fun(commands.Cog):
 #      embed.set_footer(f'Sent by {ctx.message.author}')
 #      await ctx.send(embed=embed)
 
-    @commands.command()
+#    @commands.command()
     @app_commands.command(name='gaymachine', description = 'Uses extremely advanced AI to calculate how gay you are.')
     async def gaymachine(self, interaction: discord.Interaction):
       gaymachine = random.randint(1,100)
@@ -59,12 +59,12 @@ class Fun(commands.Cog):
       await interaction.response.send_message(embed=embed)
 
 #    @commands.command(brief ='Loadout generator for Titanfall 2.')
-    async def tf2loadout(self, ctx):
+    @app_commands.command(name='tf2loadout', description='Generates a random pilot loadout for Titanfall 2.')
+    async def tf2loadout(self, interaction: discord.Interaction):
       Select()
       embed = discord.Embed(title='Titanfall 2 Loadout Generator', description = f'**Primary:** {P}\n**Secondary:** {S}\n**Anti-Titan:** {AT}\n**Kit 1:** {P1}\n**Kit 2:** {P2}\n**Ability:** {A}', colour=0x00f6fa)
-      embed.set_footer(text = f"Based off of a fast audi r8#1180's original CLI loadout generator. Requested by {ctx.message.author}")
-      await ctx.message.delete()
-      await ctx.send(embed = embed)
+      embed.set_footer(text = f"Based off of a fast audi r8#1180's original CLI loadout generator. Requested by {interaction.user.name}")
+      await interaction.resonse.send_message(embed = embed)
     
 #    @commands.command(brief = "Translates the contents of your message to English.", description = 'This command grabs your message and puts it through the Google Translate API. Sometimes, it just decides to stop working, sorry about that!')
     @app_commands.command(name='translate', description="This command translates your text input. Doesn't work most of the time.")
