@@ -60,11 +60,13 @@ async def on_ready():
   print('ready (dev)')
   try:
     synced = await client.tree.sync()
-    print(f'Synced. {len(synced)} commands.)')
+    print(f'Synced. ({len(synced)} commands.)')
   except Exception as error:
     print(error)
 
-
+@client.tree.command(name = 'test')
+async def test(interaction: discord.Interaction):
+    await interaction.response.send_message('Test')
   
 @client.event 
 async def on_member_remove(member):
