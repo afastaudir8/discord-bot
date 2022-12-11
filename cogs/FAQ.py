@@ -45,16 +45,16 @@ class FAQ(commands.Cog):
 #    await ctx.message.delete()
 #    await ctx.send(embed = embed)
 
-  @commands.command()
-  async def github(self, ctx):
+#  @commands.command()
+  @app_commands.command(name='github', description='Shares the GitHub repo.')
+  async def github(self, interaction: discord.Interaction):
     embed = discord.Embed(title = 'GitHub Repository', description = f'Ever since 9/12/2022 this bot has been open sourced on GitHub. Feel free to make a pull request on the dev branch!', url = 'https://github.com/afastaudir8/discord-bot')
-    embed.set_footer(text = f"Requested by {ctx.message.author}. Current bot version: 1.2.0.")
-    await ctx.message.delete()
-    await ctx.send(embed = embed)
+    embed.set_footer(text = f"Requested by {interaction.user.name}. Current bot version: 2.0.0.")
+    await interaction.response.send_message(embed = embed)
 
   @app_commands.command(name = 'slashcommands')
   async def slashcommands(self, interaction: discord.Interaction):
-    embed = discord.Embed(title = "Slash commands", description='This is a test for slash commands.')
+    embed = discord.Embed(title = "Slash commands", description='Since 11/12/22, the bot has migrated to using exclusively slash commands.')
     await interaction.response.send_message(embed = embed)
 
 
