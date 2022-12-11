@@ -25,7 +25,7 @@ class Useful(commands.Cog):
   @app_commands.command(name='credits', description='Shows credits for the bot.')
   async def credits(self, interaction: discord.Interaction):
     embed = discord.Embed(title = 'Credits', description = f'Bot created by <@478212283701526529> using the discord.py library. Other libraries include Translator, goslate, datetime, and asyncio \n Check out the source code here: https://github.com/afastaudir8/discord-bot', url='https://github.com/afastaudir8/discord-bot', colour=0x00FFF3)
-    embed.set_footer(text=f"Requested by {interaction.user.name}. Current bot version: 1.2.0.")
+    embed.set_footer(text=f"Requested by {interaction.user.name}. Current bot version: 2.0.0.")
     await interaction.response.send_message(embed=embed)
 
 #  @commands.command()
