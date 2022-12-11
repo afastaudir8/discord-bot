@@ -58,6 +58,14 @@ async def on_ready():
   await client.change_presence(activity=game)
   print('ready')
   
+try:
+    channelidopen = open('channelid.txt', 'x')
+    channelidopen.write('Here you put the channelid you want to put the welcome commands in. Replace all the text here with the channel ID.')
+    print('Check out the new file called "channelid.txt"!')
+    pass
+except:
+    pass
+
 @client.event 
 async def on_member_remove(member):
  channel=client.get_channel(1005707501435629752)
