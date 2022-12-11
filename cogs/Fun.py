@@ -51,14 +51,14 @@ class Fun(commands.Cog):
 #      embed.set_footer(f'Sent by {ctx.message.author}')
 #      await ctx.send(embed=embed)
 
-#    @commands.command()
+    @commands.command()
     @app_commands.command(name='gaymachine', description = 'Uses extremely advanced AI to calculate how gay you are.')
     async def gaymachine(self, interaction: discord.Interaction):
       gaymachine = random.randint(1,100)
-      embed = discord.Embed(title='Gayness Percentage:', description=f'{gaymachine}%')
+      embed = discord.Embed(title='Gayness Percentage:', description=f'{gaymachine}%', colour = 0x00FF0A)
       await interaction.response.send_message(embed=embed)
 
-    @commands.command(brief ='Loadout generator for Titanfall 2.')
+#    @commands.command(brief ='Loadout generator for Titanfall 2.')
     async def tf2loadout(self, ctx):
       Select()
       embed = discord.Embed(title='Titanfall 2 Loadout Generator', description = f'**Primary:** {P}\n**Secondary:** {S}\n**Anti-Titan:** {AT}\n**Kit 1:** {P1}\n**Kit 2:** {P2}\n**Ability:** {A}', colour=0x00f6fa)
