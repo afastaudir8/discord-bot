@@ -9,20 +9,20 @@ class FAQ(commands.Cog):
   def __init__(self, client):
         self.client = client
 
-  @commands.command()
+#  @commands.command()
 #  @commands.cooldown(2, 30, commands.BucketType.user)
-  async def about(self, ctx):
+  @app_commands.command(name='about', description='About the RampRage project')
+  async def about(self, interaction: discord.Interaction):
     embed = discord.Embed(title='About the project', description = f'Check out <#1010733249384960100>\nThe pin in that channel is the first message. I highly recommend you read it.', color=0x001aff)
-    embed.set_footer(text = f'By the way, if you have any suggestions for the bot, let me know! Requested by {ctx.message.author}.')
-    await ctx.message.delete()
-    await ctx.send(embed=embed)
+    embed.set_footer(text = f'By the way, if you have any suggestions for the bot, let me know! Requested by {interaction.user.name}.')
+    await interaction.response.send_message(embed=embed)
 
-  @commands.command()
-  async def changelog(self, ctx):
+#  @commands.command()
+  @app_commands.command(name='changelog', description='Changelog for the latest version of the game.')
+  async def changelog(self, interaction: discord.Interaction):
     embed = discord.Embed(title= 'Download the game', description = f"**Version 17: The AI Update** \n -Damage direction arrows \n -Crosshair added \n -Plasma drone laser attack \n Plasma drone ai \n -Upgrades to AIs in drones \n -Shotgunners now fire all projectiles in the same frame \n -Optimization on projectiles makes them appear to have triple the projectiles they do \n -Explosions no longer crash game when damaging creator of explosion or actor of same team as creator \n NEW ISSUE: explosions will not damage these actors \n-Behind the scenes code nonsense \n-Kamanzie drones now can move around corners (at cost of not turning smoothly) \n-Plasma projectiles now have a texture, the ability to be parried, and no longer get stuck on surfaces, and damage the player \n -Hitscan parry (unknown issue stops it from working right now) \n-Made MP map look more interesting for testing movement \n-Running physics on ground now no longer make player slide about like a maniac (this will be re introduced to a significantly lower extent after landing from a jump)  \n **Coming soon** \n * Version 18 is releasing by the end of December.* \n-First fully modeled and textured gun \n-Fix issue where kantanna won't go away \n -Animate kantanna slash/parry \n -Super shotgun \n -Other stuff", url = 'https://drsupervillain.itch.io/ramprage', color=0x001aff)
-    embed.set_footer(text = f'Requested by {ctx.message.author}. If the changelog is outdated, DM a fast audi r8#1180.')
-    await ctx.message.delete()
-    await ctx.send(embed = embed)
+    embed.set_footer(text = f'Requested by {interaction.user.name}. If the changelog is outdated, DM a fast audi r8#1180.')
+    await interaction.response.send_message(embed = embed)
 
   @commands.command()
   async def betacommands(self, ctx):
