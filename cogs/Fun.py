@@ -90,8 +90,9 @@ class Fun(commands.Cog):
       embed.set_footer(text=f'Requested by {interaction.user.name}.')
       await interaction.response.send_message(embed = embed)
 
-    @commands.command(brief = 'Shows a percentage of the progress throughout the year and days left in the year.')
-    async def yearprogress(self, ctx):
+#    @commands.command(brief = 'Shows a percentage of the progress throughout the year and days left in the year.')
+    @app_commands.command(name='yearprogress', description='Displays how far we are into the current year. Shows a percentage, days left, and days passed.')
+    async def yearprogress(self, interaction: discord.Interaction):
       today = datetime.datetime.now()
       date = today.date()   
       days = today.timetuple().tm_yday
@@ -103,9 +104,8 @@ class Fun(commands.Cog):
       year = int(year)
       nextyear = year + 1
       embed = discord.Embed(title = 'Year progress', description = f"We are `{percent}%` through the year! \n That means there's around `{calc2}` days left until {nextyear} \n If you were curious, we're `{days} days` in.", url="https://www.youtube.com/watch?v=pgXozIma-Oc", colour = 0x00FF0A)
-      embed.set_footer(text = f'Requested by {ctx.message.author}. Current year: {year}')
-      await ctx.message.delete()
-      await ctx.send(embed = embed)
+      embed.set_footer(text = f'Requested by {interaction.user.name}. Current year: {year}')
+      await interaction.response.send_message(embed = embed)
 
 
     @commands.command()
