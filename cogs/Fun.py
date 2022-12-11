@@ -5,9 +5,9 @@ import random
 from random import choice
 import goslate
 import datetime
-from googletrans import Translator
+# from googletrans import Translator
 
-translation = Translator(service_urls=['translate.googleapis.com'])
+# translation = Translator(service_urls=['translate.googleapis.com'])
 
 Primaries = ['R-201/101', 'Hemlock', 'G2A5', "Flatline", 'Alternator', 'CAR', 'R-97', 'Volt', 'Spitfire', 'Devotion', 'L-STAR', 'Cold War', 'EPG', 'SMR', 'Softball', 'Wingman Elite', 'Mozambique', 'EVA-8', 'Mastiff', 'Double Take', 'Kraber', 'Longbow']
 Secondaries = ['P2016', 'Wingman', 'RE-45']
