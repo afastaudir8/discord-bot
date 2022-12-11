@@ -17,7 +17,7 @@ class Useful(commands.Cog):
     membercount = interaction.guild.member_count
     membercount = int(membercount)
 #    nobotcount = membercount - 5 
-    embed = discord.Embed(title = 'Current Member count', description = f"The server currently has {membercount} members!", colour=0x00FF5E)
+    embed = discord.Embed(title = 'Current Member count', description = f"The server currently has `{membercount} members!`", colour=0x00FF5E)
     embed.set_footer(text=f'Requested by {interaction.user.name}.')
     await interaction.response.send_message(embed=embed)
 
