@@ -26,6 +26,7 @@ class Useful(commands.Cog):
     embed.set_footer(text=f"Requested by {ctx.message.author}. Current bot version: 1.2.0.")
     await ctx.message.delete()
     await ctx.send(embed=embed)
+
   @commands.command()
   async def suicidehotlines(self, ctx):
     embed = discord.Embed(title='Suicide Prevention Hotlines', description=f"You're not alone  \n We all care about you, please **do not** go through with it. \nCall one of the crisis hotlines listed in the Wikipedia article linked in the title depending on where you are. You could also ping Ash (<@708094727588937799>) for help.", url='https://en.wikipedia.org/wiki/List_of_suicide_crisis_lines', color=0xff0000)
