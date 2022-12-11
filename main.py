@@ -64,9 +64,9 @@ async def on_ready():
   except Exception as error:
     print(error)
 
-@client.tree.command(name = 'test')
-async def test(interaction: discord.Interaction):
-    await interaction.response.send_message('Test')
+#@client.tree.command(name = 'test')
+#async def test(interaction: discord.Interaction):
+#    await interaction.response.send_message('Test')
   
 @client.event 
 async def on_member_remove(member):

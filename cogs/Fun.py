@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions
+from discord import app_commands
 import random
 from random import choice
 import goslate
@@ -64,15 +65,20 @@ class Fun(commands.Cog):
       await ctx.message.delete()
       await ctx.send(embed = embed)
     
-    @commands.command(brief = "Translates the contents of your message to English.", description = 'This command grabs your message and puts it through the Google Translate API. Sometimes, it just decides to stop working, sorry about that!')
-    async def gtranslate(self, ctx, message):
+#    @commands.command(brief = "Translates the contents of your message to English.", description = 'This command grabs your message and puts it through the Google Translate API. Sometimes, it just decides to stop working, sorry about that!')
+    @app_commands.command(name='translate', description="This command translates your text input. Doesn't work most of the time.")
+    @app_commands.describe(message = "Message")
+    async def gtranslate(self, interaction: discord.Interaction, message: str):
+      await interaction.response.defer(ephermal=True, thinking=True)
       textinput = message
       gs = goslate.Goslate()
       trans = gs.translate(textinput, 'en')
       embed = discord.Embed (title='Translation', description = f"Translation result: {trans}")
-      embed.set_footer(text=f'Demandé par {ctx.message.author}. Message originale: {message}')
-      await ctx.message.delete()
-      await ctx.send(embed=embed) 
+      embed.set_footer(text=f'Demandé par {interaction.user.name }. Message originale: {message}')
+      print(trans)
+#      wait = await interaction.response.send_message('Processing... (This may take a while or may not work at all)', ephemeral=True)
+      await interaction.followup(embed = embed)
+#      await interaction.response.send_message(embed = embed)
     
     @commands.command(brief = "Shows the amount of days left before Christmas Day.", description = 'Shows the amountof days before Christmas day. This command will be removed on 25/12/2022.')
     async def christmas(self, ctx):

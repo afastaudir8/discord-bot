@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord import app_commands
 import random
 from random import choice
 
@@ -50,6 +51,11 @@ class FAQ(commands.Cog):
     embed.set_footer(text = f"Requested by {ctx.message.author}. Current bot version: 1.2.0.")
     await ctx.message.delete()
     await ctx.send(embed = embed)
+
+  @app_commands.command(name = 'slashcommands')
+  async def slashcommands(self, interaction: discord.Interaction):
+    embed = discord.Embed(title = "Slash commands", description='This is a test for slash commands.')
+    await interaction.response.send_message(embed = embed)
 
 
 async def setup(client):
