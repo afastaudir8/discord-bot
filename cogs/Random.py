@@ -9,10 +9,10 @@ class Random(commands.Cog):
     def __init__(self, client):
         self.dlient = client
 
-    @commands.command()
-    async def yesno(self, ctx):
-        yesno = choice(["Yes", "No", "Maybe"])
-        await ctx.send(yesno)
+#    @commands.command()
+#    async def yesno(self, ctx):
+#        yesno = choice(["Yes", "No", "Maybe"])
+#        await ctx.send(yesno)
 
 #    @commands.command(brief = "Going against it's answers is heresy.")
     @app_commands.command(name='8ball', description="Going against it's answers is heresy.")
