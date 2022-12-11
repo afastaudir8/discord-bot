@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord import app_commands
 
 class Useful(commands.Cog):
 
@@ -10,15 +11,15 @@ class Useful(commands.Cog):
 
 
 
-  @commands.command(brief = 'Displays member count.')
-  async def members(self, ctx):
-    membercount = ctx.guild.member_count
+#  @commands.command(brief = 'Displays member count.')
+  @app_commands.command(name='members', description='Displays the current member count')
+  async def members(self, interaction: discord.Interaction):
+    membercount = interaction.guild.member_count
     membercount = int(membercount)
-    nobotcount = membercount - 5 
-    embed = discord.Embed(title = 'Current Member count', description = f"The server currently has {membercount} members! \n {nobotcount} if we don't count bots.", colour=0x00FF5E)
-    embed.set_footer(text=f'Requested by {ctx.message.author}.')
-    await ctx.message.delete()
-    await ctx.send(embed=embed)
+#    nobotcount = membercount - 5 
+    embed = discord.Embed(title = 'Current Member count', description = f"The server currently has {membercount} members!", colour=0x00FF5E)
+    embed.set_footer(text=f'Requested by {interaction.user.name}.')
+    await interaction.response.send_message(embed=embed)
 
   @commands.command(brief = 'Shows credits for the bot.')
   async def credits(self, ctx):
