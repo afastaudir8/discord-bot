@@ -78,6 +78,10 @@ class FAQ(commands.Cog):
   async def slashcommands(self, interaction: discord.Interaction, hide: Literal ['Yes', 'No']):
     embed = discord.Embed(title = "Slash commands", description='Since 11/12/22, the bot has migrated to using exclusively slash commands.')
     embed.set_footer(text = f'Reuqested by {interaction.user.name}')
+    if hide == 'Yes':
+      hide = True
+    else:
+      hide = False
     await interaction.response.send_message(embed = embed, ephemeral=hide)
 
 
