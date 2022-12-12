@@ -2,6 +2,7 @@ import os
 from multiprocessing import Event
 import discord
 from discord.ext import commands
+from discord import app_commands
 from discord.ext.commands import has_permissions
 import os
 import sys
@@ -51,12 +52,21 @@ async def load_extensions():
             await client.load_extension(f"cogs.{filename[:-3]}")
 
 
-game = discord.Game('Ramprage')
+game = discord.Game("around in VSCode")
 
 @client.event
 async def on_ready():
   await client.change_presence(activity=game)
-  print('ready')
+  print('ready (dev)')
+  try:
+    synced = await client.tree.sync()
+    print(f'Synced. ({len(synced)} commands.)')
+  except Exception as error:
+    print(error)
+
+#@client.tree.command(name = 'test')
+#async def test(interaction: discord.Interaction):
+#    await interaction.response.send_message('Test')
   
 @client.event 
 async def on_member_remove(member):
