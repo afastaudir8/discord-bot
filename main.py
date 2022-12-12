@@ -57,7 +57,7 @@ game = discord.Game("around in VSCode")
 @client.event
 async def on_ready():
   await client.change_presence(activity=game)
-  print('ready (dev)')
+  print('ready')
   try:
     synced = await client.tree.sync()
     print(f'Synced. ({len(synced)} commands.)')
@@ -85,6 +85,7 @@ async def main():
     async with client:
         await load_extensions()
         await client.start(tokenstring)
+
 
 
 #keep_alive()
